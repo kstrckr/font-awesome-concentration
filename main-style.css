@@ -25,10 +25,14 @@ body{
 	border-width: 2px;
 	border-color: black;
 	background: grey;
+	/*color: rgba(0,0,0,0);*/
+}
+
+#game-grid li:hover{
+	color: rgba(0,0,0,1);
 }
 
 #game-grid p{
 	margin: 0;
 	padding: 0;
 }
-
