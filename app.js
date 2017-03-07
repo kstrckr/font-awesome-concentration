@@ -1,16 +1,3 @@
-//document.getElementById("game-grid").children[0].innerHTML = allCodes[336].toString();
-   
-//var listElements = document.getElementById("game-grid").children;
-
-
-//loops through <li> elements and assigns a random icon to each - for testing	  
-/*
-for (let i = 0; i<listElements.length; i++){
-	let randomIcon = Math.floor(Math.random()*(allCodes.length))
-	console.log(allCodes[randomIcon]);
-	listElements[i].innerHTML = "<p>" + allCodes[randomIcon] + "</p>";
-	  }
-*/
 //todo
 
 //1.0 - build game board
@@ -52,7 +39,8 @@ function createIconTiles(targetElements, iconSource){
 
 //run
 //console.log(initialTiles);
-let initialTiles = pickRandomPairs(2, allCodes);
+let gameCells = gameBoardElements.length/2;
+let initialTiles = pickRandomPairs(gameCells, allCodes);
 let tileAssignments = createAssignments(initialTiles);
 console.log(tileAssignments);
 createIconTiles(gameBoardElements, tileAssignments);
