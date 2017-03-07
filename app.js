@@ -1,7 +1,7 @@
 //todo
 
 //1.0 - build game board
-	//starting with 4x1 board
+
 //1.1 - pick tiles/2 icons
 function pickRandomPairs(dimension, source) {
 	let randomArray = [];
@@ -13,8 +13,6 @@ function pickRandomPairs(dimension, source) {
 }
 
 //1.2 - assign pairs of icons randomly across the board
-
-let gameBoardElements = document.getElementById("game-grid").children;
 
 function createAssignments(input) {
 	let pairArray = input.concat(input);
@@ -39,8 +37,8 @@ function createIconTiles(targetElements, iconSource){
 
 //run
 //console.log(initialTiles);
+let gameBoardElements = document.getElementById("game-grid").children;
 let gameCells = gameBoardElements.length/2;
 let initialTiles = pickRandomPairs(gameCells, allCodes);
 let tileAssignments = createAssignments(initialTiles);
-console.log(tileAssignments);
 createIconTiles(gameBoardElements, tileAssignments);
