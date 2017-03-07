@@ -16,12 +16,12 @@ function pickRandomPairs(dimension, source) {
 
 function createAssignments(input) {
 	let pairArray = input.concat(input);
-	let outputArray = [];
-	console.log(pairArray.length);
+	let outputArray = pairArray.sort(function(a, b){return 0.5 - Math.random()});
+	/*console.log(pairArray.length);
 	while (pairArray.length > 0){
 		let randomExtract = Math.floor(Math.random()*(pairArray.length));
 		outputArray.push(pairArray.splice(randomExtract, 1).toString());
-	}
+	} */
 	return outputArray;
 }
 
