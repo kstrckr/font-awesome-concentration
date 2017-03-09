@@ -32,6 +32,40 @@ function createIconTiles(targetElements, iconSource){
 }
 
 //2.0 - track player moves
+
+function bindOnClick(bindTo){
+	for (let i = 0; i < bindTo.length; i++){
+		bindTo[i].addEventListener("click", clickTile);
+	}
+}
+
+let clickTile = function(){
+	let move = this.innerHTML;
+	gameState.tileCompare.push(move);
+	if (gameState.tileCompare.length > 2){
+		gameState.tileCompare.shift();
+	}
+	gameState.scoreCheck();
+	gameState.guessPlus();
+}
+
+const gameState = {
+	matchesLeft: 6,
+	tries: 0,
+	tileCompare: [],
+	guessPlus: function(){
+		this.tries++;
+		document.getElementById("tryCount").innerHTML = this.tries;
+	},
+	scoreCheck: function(){
+		if (this.tileCompare[1] === this.tileCompare[0]){
+			this.matchesLeft--;
+			document.getElementById("leftCountdown").innerHTML = this.matchesLeft;
+		}
+		console.log(this.matchesLeft);
+	}
+	
+}
 //3.0 - track player score
 //4.0 - track game state
 
@@ -42,3 +76,6 @@ let gameCells = gameBoardElements.length/2;
 let initialTiles = pickRandomPairs(gameCells, allCodes);
 let tileAssignments = createAssignments(initialTiles);
 createIconTiles(gameBoardElements, tileAssignments);
+
+bindOnClick(gameBoardElements);
+
